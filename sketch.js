@@ -1,3 +1,10 @@
+// ====== ASSIGNMENT 03 =======
+// DATASET: https://docs.google.com/spreadsheets/d/1E3mbwhm85jmDY4q7yUmgg19AvuyPo4ttUwY7ex8tMIg/edit?gid=0#gid=0 
+
+// var
+
+// colori
+
 function preload() {
   // put preload code here
 }
