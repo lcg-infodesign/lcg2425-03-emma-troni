@@ -39,7 +39,7 @@ let maxTemp;
 let continents = ["Africa", "Asia", "Australia", "Europe", "North America", "Oceania", "South America"];
 let selectedRiver = null;
 let continentData = [];
-//                = [{ info continents[0] , rivers:[array di info dei fiumi interni al continents[0]], ... , { continents[N] }];
+//                = [ {info continents[0] , rivers:[array di info dei fiumi interni al continents[0]]}, ... , { continents[N] }];
 let paddingContinentName = 15;
 let distContinentsFactor = 3.5;
 let yHeader = 30;
