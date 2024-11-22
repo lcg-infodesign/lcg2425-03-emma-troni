@@ -312,8 +312,6 @@ function legenda() {
   let legendX = 29;
   let legendY = yHeader * 3.2;
   let paddingY = 30;
-  let gradWidth = 165;
-  let gradHeight = 10;
 
   push();
   noStroke();
@@ -344,15 +342,16 @@ function legenda() {
   }
 
   // temperatura 
-  // LINEAR GRADIENT - tutorial https://www.youtube.com/watch?v=-MUOweQ6wac
-  // reference code: https://github.com/Creativeguru97/YouTube_tutorial/blob/master/p5_hacks/Gradient_effect/linear_gradient/sketch.js 
+  let gradWidth = 168;
+  let gradHeight = 10;
   let gradX1 = 0;
   let gradY1 = paddingY * 2.3;
   let gradX2 = gradX1 + gradWidth;
   let gradY2 = gradY1;
   let markWidth = 3;
   text("Minimum Temperature Range [C°]", 0, paddingY * 1.8);
-
+  // LINEAR GRADIENT - tutorial https://www.youtube.com/watch?v=-MUOweQ6wac
+  // reference code: https://github.com/Creativeguru97/YouTube_tutorial/blob/master/p5_hacks/Gradient_effect/linear_gradient/sketch.js 
   let gradient = drawingContext.createLinearGradient(gradX1, gradY1, gradX2, gradY2);
   gradient.addColorStop(0, getColorByTemperature(minTemp));
   gradient.addColorStop(1, getColorByTemperature(maxTemp));
