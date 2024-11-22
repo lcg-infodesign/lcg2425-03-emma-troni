@@ -4,9 +4,9 @@
 // - quando il canvas è disegnato all'avvio nel setup(), 
 //   calculate() ha funzione di:
 //     --> calcolo delle posizioni dei continenti e dei fiumi 
-//     --> salvare i dati in un array globale (continentData) - richiamata poi in draw() per disegnare visualizzazione
+//     --> salvare i dati in un array globale (continentData) - richiamata poi in draw() per disegnare la visualizzazione
 
-// - gestione transizione Hover con mouseMoved(): https://p5js.org/reference/p5.Element/mouseMoved/: 
+// - gestione transizione Hover con mouseMoved(): https://p5js.org/reference/p5.Element/mouseMoved/
 //   chiamata automaticamente ogni volta che il mouse si sposta 
 //     --> definisce quale fiume l'utente sta selezionando (selectedRiver)
 
@@ -47,7 +47,7 @@ let yHeader = 30;
 // COLORI 
 let continentColor = "WhiteSmoke";
 let bgColor = [28, 39, 51];
-let txtColor = [["white"], [190]];
+let txtColor = [["white"], ["lightgrey"]];
 let tempColor = [[218, 225, 250], [23, 92, 145]];
 //              [[ minTemp rgb ],[ maxTemp rgb ]]
 let markColor = ["#d13f76", "#9e3a61"];
@@ -105,7 +105,6 @@ function calculate() {
 
   // array dove salvare i dati per riutilizzarli in draw
   // la svuoto in quanto ogni volta che si ricarica la pagina != disposizione fiumi
-  // placedContinents = [];
   continentData = [];
 
   // PER OGNI CONTINENTE:
@@ -204,7 +203,6 @@ function getContinentSize(continent) {
   // calcolo l'area TEORICA necessaria 
   let theoryArea = 0;
   for (let i = 0; i < riversPerContinent.length; i++) {
-    // let numRivers = riversPerContinent[i].length;
     // proporzione dimensione cerchio rispetto alla dimensione relativa a Length di ciascun fiume
     let riverSize = map(riversPerContinent[i].area, minArea, maxArea, minRiverSize, scaledMaxRiverSize);
     // area = PI*(raggio**2)
@@ -314,7 +312,6 @@ function legenda() {
   let legendX = 29;
   let legendY = yHeader * 3.2;
   let paddingY = 30;
-  // let paddingX = 30;
   let gradWidth = 165;
   let gradHeight = 10;
 
@@ -322,7 +319,7 @@ function legenda() {
   noStroke();
   translate(legendX, legendY);
 
-  // TITOLO
+  // titolo
   fill(txtColor[0]);
   textSize(16);
   textAlign(LEFT, TOP);
@@ -331,7 +328,7 @@ function legenda() {
   text("Legenda", 0, 0);
   pop()
 
-  // NOME FIUME
+  // nome fiume
   textAlign(LEFT);
   textSize(11);
   text("None river selected", 0, paddingY);
@@ -346,7 +343,7 @@ function legenda() {
     text("   ");
   }
 
-  // TEMPERATURA 
+  // temperatura 
   // LINEAR GRADIENT - tutorial https://www.youtube.com/watch?v=-MUOweQ6wac
   // reference code: https://github.com/Creativeguru97/YouTube_tutorial/blob/master/p5_hacks/Gradient_effect/linear_gradient/sketch.js 
   let gradX1 = 0;
@@ -368,7 +365,7 @@ function legenda() {
     fill(txtColor[0]);
     text(selectedRiver.temp + "°C", markX - 5, gradY1 + 13)
   }
-
+  // area fiume
   fill(txtColor[0]);
   text("River Area:", 0, paddingY *4.0);
   circle(100, paddingY * 4.2, 10, 10);
@@ -376,7 +373,6 @@ function legenda() {
     push();
     fill(bgColor)
     circle(100, paddingY * 4.2, 15, 15);
-
     pop();
     circle(100, paddingY * 4.2, selectedRiver.size, 10);
     text(selectedRiver.size + " m^2", 145, paddingY *4.0)
