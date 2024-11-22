@@ -39,7 +39,7 @@ let maxTemp;
 let continents = ["Africa", "Asia", "Australia", "Europe", "North America", "Oceania", "South America"];
 let selectedRiver = null;
 let continentData = [];
-//                = [{[ info continente[i] , array dei fiumi interni al continente[i] ]};
+//                = [{[ info continente[i] , array dei fiumi interni al continente[i], ...  per N continenti]};
 let paddingContinentName = 15;
 let distContinentsFactor = 3.5;
 let yHeader = 30;
@@ -49,7 +49,7 @@ let continentColor = "WhiteSmoke";
 let bgColor = [28, 39, 51];
 let txtColor = [["white"], ["lightgrey"]];
 let tempColor = [[218, 225, 250], [23, 92, 145]];
-//              [[ minTemp rgb ],[ maxTemp rgb ]]
+//              [[ minTemp rgb ],[ maxTemp rgb ]];
 let markColor = ["#d13f76", "#9e3a61"];
 
 
@@ -260,8 +260,8 @@ function draw() {
   text("Rivers in the World", width / 2, yHeader);
   textStyle(NORMAL);
   textSize(15);
-  fill(txtColor[1])
-  text("Passa il cursore sui cerchi dei continenti per visualizzare i dettagli dei fiumi", width / 2, yHeader+30)
+  fill(txtColor[1]);
+  text("Passa il cursore sui cerchi dei continenti per visualizzare i dettagli dei fiumi", width / 2, yHeader+30);
   pop();
 
   for (let continent of continentData) {
@@ -321,10 +321,10 @@ function legenda() {
   fill(txtColor[0]);
   textSize(16);
   textAlign(LEFT, TOP);
-  push()
-  textStyle(BOLD)
+  push();
+  textStyle(BOLD);
   text("Legenda", 0, 0);
-  pop()
+  pop();
 
   // nome fiume
   textAlign(LEFT);
@@ -332,10 +332,10 @@ function legenda() {
   text("None river selected", 0, paddingY);
 
   if (selectedRiver != null) {
-    push()
-    fill(bgColor)
-    rect(0, paddingY, windowWidth / 2, 15)
-    pop()
+    push();
+    fill(bgColor);
+    rect(0, paddingY, windowWidth / 2, 15);
+    pop();
     text(selectedRiver.river + " river", 0, paddingY);
   } else {
     text("   ");
@@ -358,11 +358,11 @@ function legenda() {
   drawingContext.fillStyle = gradient;
   rect(gradX1, gradY1, gradWidth, gradHeight);
   if (selectedRiver != null) {
-    let markX = map(selectedRiver.temp, minTemp, maxTemp, gradX1, gradX1 + gradWidth)
+    let markX = map(selectedRiver.temp, minTemp, maxTemp, gradX1, gradX1 + gradWidth);
     fill(markColor[0]);
-    rect(markX, gradY1, markWidth, gradHeight)
+    rect(markX, gradY1, markWidth, gradHeight);
     fill(txtColor[0]);
-    text(selectedRiver.temp + "°C", markX - 5, gradY1 + 13)
+    text(selectedRiver.temp + "°C", markX - 5, gradY1 + 13);
   }
   // area fiume
   fill(txtColor[0]);
@@ -370,13 +370,13 @@ function legenda() {
   circle(100, paddingY * 4.2, 10, 10);
   if (selectedRiver != null) {
     push();
-    fill(bgColor)
+    fill(bgColor);
     circle(100, paddingY * 4.2, 15, 15);
     pop();
     circle(100, paddingY * 4.2, selectedRiver.size, 10);
-    text(selectedRiver.size + " m^2", 145, paddingY *4.0)
+    text(selectedRiver.size + " m^2", 145, paddingY *4.0);
   } else {
-    text("[m^2]", 145, paddingY *4.0)
+    text("[m^2]", 145, paddingY *4.0);
   }
   pop();
 }
