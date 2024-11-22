@@ -342,7 +342,7 @@ function legenda() {
   }
 
   // temperatura 
-  let gradWidth = 168;
+  let gradWidth = 167;
   let gradHeight = 10;
   let gradX1 = 0;
   let gradY1 = paddingY * 2.3;
