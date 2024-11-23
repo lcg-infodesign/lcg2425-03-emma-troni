@@ -151,6 +151,7 @@ function calculate() {
             size: riverSize,
             continent: continent,
             temp: river.min_temp,
+            area: river.area,
             color: getColorByTemperature(river.min_temp)
           };
 
@@ -374,7 +375,7 @@ function legenda() {
     circle(100, paddingY * 4.2, 15, 15);
     pop();
     circle(100, paddingY * 4.2, selectedRiver.size, 10);
-    text(selectedRiver.size + " m^2", 145, paddingY *4.0)
+    text(selectedRiver.area + " m^2", 145, paddingY *4.0)
   } else {
     text("[m^2]", 145, paddingY *4.0)
   }
