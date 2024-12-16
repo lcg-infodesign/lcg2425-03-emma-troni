@@ -173,7 +173,7 @@ function calculate() {
       size: continentSize,
       rivers: riverPositions
     });
-    
+
   }
 }
 
@@ -216,7 +216,7 @@ function getContinentSize(continent) {
   // 1. inefficienza del circle packing (C appollonio = 10% circa)
   let packingInefficiencyFactor = 1.1;
   // 2. spazio extra per facilitare il posizionamento
-  let extraPadding = scaledMaxRiverSize/2.5;
+  let extraPadding = scaledMaxRiverSize / 2.5;
 
   let finalRadius = (theoryRadius * packingInefficiencyFactor) + extraPadding;
   return finalRadius;
@@ -367,7 +367,7 @@ function legenda() {
   }
   // area fiume
   fill(txtColor[0]);
-  text("River Area:", 0, paddingY *4.0);
+  text("River Area:", 0, paddingY * 4.0);
   circle(100, paddingY * 4.2, 10, 10);
   if (selectedRiver != null) {
     push();
@@ -375,9 +375,9 @@ function legenda() {
     circle(100, paddingY * 4.2, 15, 15);
     pop();
     circle(100, paddingY * 4.2, selectedRiver.size, 10);
-    text(selectedRiver.area + " m^2", 145, paddingY *4.0);
+    text(selectedRiver.area + " m^2", 145, paddingY * 4.0);
   } else {
-    text("m^2", 145, paddingY *4.0);
+    text("m^2", 145, paddingY * 4.0);
   }
   pop();
 }
@@ -388,7 +388,7 @@ function windowResized() {
   // ricalcolo scaledMaxRiverSize quando la finestra viene ridimensionata
   let scaleFactor = min(windowWidth / 1920, windowHeight / 1080);
   scaledMaxRiverSize = maxRiverSize * scaleFactor;
-  
+
   // ridefinisco i parametri anche quando windowResize non solo quando si ricarica la pagina:
   calculate();
 }
